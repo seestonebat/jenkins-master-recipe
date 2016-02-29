@@ -17,7 +17,21 @@ pushd $SCRATCH_DIR > /dev/null
 wget --quiet http://127.0.0.1/jnlpJars/jenkins-cli.jar
 
 # Install the ec2 autoscale plugin
-java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ install-plugin ec2
+PLUGINS="
+ec2
+credentials
+ssh-credentials
+matrix-project
+mailer
+icon-shim
+scm-api
+junit
+git
+git-client
+"
+for PLUGIN in $PLUGINS; do
+    java -jar jenkins-cli.jar -s http://127.0.0.1:8080/ install-plugin $PLUGIN
+done
 popd > /dev/null
 
 if [[ -z $JENKINS_HOME ]] ; then 

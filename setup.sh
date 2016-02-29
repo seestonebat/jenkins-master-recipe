@@ -15,12 +15,12 @@ fi
 
 # Install jenkins package
 wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
-sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 sudo apt-get update
 sudo apt-get install --assume-yes jenkins
 
 # Forward port 8080 to 80
-sudo perl -0777 -i.original -pe 's/exit 0/#Requests from outside\niptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
+sudo perl -0777 -i.original -pe 's/^exit 0/#Requests from outside\niptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
 \n#Requests from localhost\niptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 80 -j REDIRECT --to-ports 8080\nexit 0/igs' /etc/rc.local
 sudo /etc/rc.local
 
