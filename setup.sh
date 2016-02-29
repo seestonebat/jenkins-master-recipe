@@ -24,5 +24,7 @@ sudo perl -0777 -i.original -pe 's/^exit 0/#Requests from outside\niptables -t n
 \n#Requests from localhost\niptables -t nat -I OUTPUT -p tcp -d 127.0.0.1 --dport 80 -j REDIRECT --to-ports 8080\nexit 0/igs' /etc/rc.local
 sudo /etc/rc.local
 
+# FIXME - this hardcoded sleep should be replaced by an incremental backoff
+sleep 5
 echo "************ SUCCESSFULLY INSTALLED JENKINS *********************"
 exit 0

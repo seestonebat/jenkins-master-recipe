@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <hudson>
   <disabledAdministrativeMonitors/>
-  <version>1.650</version>
+  <version>1.642.2</version>
   <numExecutors>2</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -23,10 +23,10 @@
       <privateKey>
         <privateKey></privateKey>
       </privateKey>
-      <instanceCap>2147483647</instanceCap>
+      <instanceCap>5</instanceCap>
       <templates>
         <hudson.plugins.ec2.SlaveTemplate>
-          <ami>ami-a52bc9c5</ami>
+          <ami>ami-412dcf21</ami>
           <description>spark-builder</description>
           <zone></zone>
           <securityGroups></securityGroups>
@@ -38,7 +38,7 @@
           <initScript></initScript>
           <tmpDir></tmpDir>
           <userData></userData>
-          <numExecutors></numExecutors>
+          <numExecutors>1</numExecutors>
           <remoteAdmin>ubuntu</remoteAdmin>
           <jvmopts></jvmopts>
           <subnetId></subnetId>
@@ -46,16 +46,16 @@
           <iamInstanceProfile></iamInstanceProfile>
           <useEphemeralDevices>false</useEphemeralDevices>
           <customDeviceMapping></customDeviceMapping>
-          <instanceCap>2147483647</instanceCap>
-          <stopOnTerminate>false</stopOnTerminate>
+          <instanceCap>5</instanceCap>
+          <stopOnTerminate>true</stopOnTerminate>
           <usePrivateDnsName>false</usePrivateDnsName>
           <associatePublicIp>false</associatePublicIp>
           <useDedicatedTenancy>false</useDedicatedTenancy>
           <amiType class="hudson.plugins.ec2.UnixData">
             <rootCommandPrefix></rootCommandPrefix>
-            <sshPort></sshPort>
+            <sshPort>22</sshPort>
           </amiType>
-          <launchTimeout>2147483647</launchTimeout>
+          <launchTimeout>200</launchTimeout>
           <connectBySSHProcess>false</connectBySSHProcess>
           <connectUsingPublicIp>false</connectUsingPublicIp>
         </hudson.plugins.ec2.SlaveTemplate>
