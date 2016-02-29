@@ -29,13 +29,13 @@
           <ami>ami-b17e93d1</ami>
           <description>spark-builder</description>
           <zone></zone>
-          <securityGroups></securityGroups>
+          <securityGroups>csanders-admin-sgwest</securityGroups>
           <remoteFS>/var/jenkins</remoteFS>
           <type>M3Xlarge</type>
           <ebsOptimized>false</ebsOptimized>
           <labels>jenkins-builder</labels>
           <mode>NORMAL</mode>
-          <initScript></initScript>
+          <initScript>sudo apt-get install --yes git </initScript>
           <tmpDir></tmpDir>
           <userData></userData>
           <numExecutors>1</numExecutors>
