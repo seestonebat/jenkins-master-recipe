@@ -26,12 +26,12 @@
       <instanceCap>5</instanceCap>
       <templates>
         <hudson.plugins.ec2.SlaveTemplate>
-          <ami>ami-412dcf21</ami>
+          <ami>ami-b17e93d1</ami>
           <description>spark-builder</description>
           <zone></zone>
           <securityGroups></securityGroups>
           <remoteFS>/var/jenkins</remoteFS>
-          <type>M3Medium</type>
+          <type>M3Xlarge</type>
           <ebsOptimized>false</ebsOptimized>
           <labels>jenkins-builder</labels>
           <mode>NORMAL</mode>
